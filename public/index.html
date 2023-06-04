@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{{title}}}</title>
+        <meta charset="utf-8" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+        <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#FFFFFF" />
+        <meta name="description" content="{{{description}}}" id="headerDescription" />
+        <meta name="keywords" content="{{{keywords}}}" id="headerKeywords" />
+        <meta property="og:title" content="{{{title}}}" />
+        <meta property="og:site_name" content="{{{sitename}}}" />
+        <meta property="og:description" content="{{{description}}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{{url}}}" />
+        <meta property="og:image" content="{{{image}}}" />
+        <meta property="fb:app_id" content="{{{appid}}}" />
+        <meta property="fb:pages" content="{{{pageid}}}" />
+        <meta name="twitter:url" content="{{{url}}}" />
+        <meta name="twitter:title" content="{{{title}}}" />
+        <meta name="twitter:description" content="{{{description}}}" />
+        <meta name="twitter:image" content="{{{image}}}" />
+        <meta name="”twitter:card”" content="”summary_large_image”" />
+        <!--
+        manifest.json provides metadata used when your web app is installed on a
+        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+        -->
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <!--
+        Notice the use of %PUBLIC_URL% in the tags above.
+        It will be replaced with the URL of the `public` folder during the build.
+        Only files inside the `public` folder can be referenced from the HTML.
+
+        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+        work correctly both with client-side routing and a non-root public URL.
+        Learn how to configure a non-root public URL by running `npm run build`.
+        -->
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+            }
+            .logo-placeholder {
+                text-align: center;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                margin: 0 auto;
+            }
+            .logo-placeholder > img {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root">
+            <div class="logo-placeholder root">
+                <img
+                    src="/static/media/logo-bikiran-1.84a8226b4b9518eae49c440cd43305f5.svg"
+                    alt=""
+                />
+            </div>
+        </div>
+        <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+        <!-- <script type="text/javascript">
+            window.$crisp = [];
+            window.CRISP_WEBSITE_ID = '9e5245b9-b72f-49da-8c31-fc3df5ccd32e';
+            (function () {
+                d = document;
+                s = d.createElement('script');
+                s.src = 'https://client.crisp.chat/l.js';
+                s.async = 1;
+                d.getElementsByTagName('head')[0].appendChild(s);
+            })();
+        </script> -->
+    </body>
+</html>
