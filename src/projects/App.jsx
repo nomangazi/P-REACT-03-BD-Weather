@@ -2,9 +2,9 @@
 import ComposeProviders from './utils/ComposeProviders';
 
 function App() {
-    // -- Change fav icon dynamically
-    var link = document.querySelector("link[rel~='icon'");
-    link.href = "https://files.bikiran.com/assets/images/icon/icon-bik-logoV1.svg";
+    // // -- Change fav icon dynamically
+    // var link = document.querySelector("link[rel~='icon'");
+    // link.href = "https://files.bikiran.com/assets/images/icon/icon-bik-logoV1.svg";
   return (
     <ComposeProviders components={[/** All Global Provider here */]}>
         
