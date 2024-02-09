@@ -1,5 +1,5 @@
 function IndexPage() {
-    return <div></div>;
+    return <div>ok</div>;
 }
 
 export default IndexPage;

@@ -12,7 +12,7 @@ function InitProvider({ children }) {
 
     const value = useMemo(() => {
         return { initData, setInitData, locationInfo, setLocationInfo };
-    }, []);
+    }, [initData, locationInfo]);
 
     return <InitContext.Provider value={value}>{children}</InitContext.Provider>;
 }
