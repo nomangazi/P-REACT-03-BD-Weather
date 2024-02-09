@@ -1,6 +1,0 @@
-node_modules
-build
-.history
-.yarn/cache
-.yarn/install-state.gz
-yarn.lock
