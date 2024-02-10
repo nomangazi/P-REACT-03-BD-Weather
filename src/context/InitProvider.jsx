@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
 const InitContext = createContext();
@@ -12,7 +12,6 @@ function InitProvider({ children }) {
         latitude: '23.9456166',
         longitude: '90.2526382'
     });
-    console.log(weatherData);
     useEffect(() => {
         try {
             navigator.geolocation.getCurrentPosition((data) => {
