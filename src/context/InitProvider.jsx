@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { createContext, useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -6,14 +7,14 @@ export const useInit = () => useContext(InitContext);
 
 function InitProvider({ children }) {
     const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-    const [locationData, setLocationData] = useState({
-        latitude: '',
-        longitude: '',
-        timestamp: ''
-    });
     const [weatherData, setWeatherData] = useState({});
+    const [locationData, setLocationData] = useState({
+        latitude: '23.9456166',
+        longitude: '90.2526382'
+    });
+    console.log(weatherData);
     useEffect(() => {
-        if (navigator.geolocation) {
+        try {
             navigator.geolocation.getCurrentPosition((data) => {
                 setLocationData((cu) => ({
                     ...cu,
@@ -22,40 +23,21 @@ function InitProvider({ children }) {
                     timestamp: data.timestamp
                 }));
             });
-        } else {
-            toast.success('Geolocation is not available in your browser.');
+        } catch (error) {
+            toast.error(error.toString());
         }
     }, []);
-
     useEffect(() => {
-        // if (locationData.latitude && locationData.longitude) {
-        //     fetch(
-        //         `https://api.openweathermap.org/data/2.5/onecall?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric&exclude={current}&appid=${apiKey}`
-        //     )
-        //         .then((resData) => {
-        //             return resData.json();
-        //         })
-        //         .then((data) => {
-        //             console.log(data);
-        //         })
-        //         .catch((error) => {
-        //             console.log(error);
-        //         });
-        // }
-        if (locationData.latitude && locationData.longitude) {
-            fetch(
-                `https://geocode.maps.co/reverse?lat=${locationData.latitude}&lon=${locationData.longitude}&api_key=65c6f5b78dce6416502357hyac9e83f`
+        axios
+            .get(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric&exclude={current}&appid=${apiKey}`
             )
-                .then((resData) => {
-                    return resData.json();
-                })
-                .then((data) => {
-                    console.log(data);
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
-        }
+            .then(({ data }) => {
+                setWeatherData(data);
+            })
+            .catch((error) => {
+                toast.error(error.toString());
+            });
     }, [locationData]);
 
     const value = useMemo(() => {

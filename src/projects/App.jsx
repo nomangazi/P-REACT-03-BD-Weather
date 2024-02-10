@@ -1,5 +1,6 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import InitProvider from '../context/InitProvider';
 import RouteHandler from './RouteHandler';
 import ComposeProviders from './utils/ComposeProviders';
