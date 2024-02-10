@@ -11,7 +11,7 @@ function InitProvider({ children }) {
         longitude: '',
         timestamp: ''
     });
-    const [locationInfo, setLocationInfo] = useState(null);
+    const [weatherData, setWeatherData] = useState({});
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((data) => {
@@ -28,9 +28,23 @@ function InitProvider({ children }) {
     }, []);
 
     useEffect(() => {
+        // if (locationData.latitude && locationData.longitude) {
+        //     fetch(
+        //         `https://api.openweathermap.org/data/2.5/onecall?lat=${locationData.latitude}&lon=${locationData.longitude}&units=metric&exclude={current}&appid=${apiKey}`
+        //     )
+        //         .then((resData) => {
+        //             return resData.json();
+        //         })
+        //         .then((data) => {
+        //             console.log(data);
+        //         })
+        //         .catch((error) => {
+        //             console.log(error);
+        //         });
+        // }
         if (locationData.latitude && locationData.longitude) {
             fetch(
-                `https://api.openweathermap.org/data/2.5/onecall?lat=${locationData.latitude}&lon=${locationData.longitude}&exclude={current}&appid=${apiKey}`
+                `https://api.geoapify.com/v1/geocode/reverse?lat=51.21709661403662&lon=6.7782883744862374&apiKey=6a57726b2c8147f5bdef39ad3c765426`
             )
                 .then((resData) => {
                     return resData.json();
@@ -45,8 +59,8 @@ function InitProvider({ children }) {
     }, [locationData]);
 
     const value = useMemo(() => {
-        return { locationInfo, setLocationInfo };
-    }, []);
+        return { weatherData, setWeatherData, locationData, setLocationData };
+    }, [weatherData, locationData]);
 
     return <InitContext.Provider value={value}>{children}</InitContext.Provider>;
 }
