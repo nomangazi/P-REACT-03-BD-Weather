@@ -44,7 +44,7 @@ function InitProvider({ children }) {
         // }
         if (locationData.latitude && locationData.longitude) {
             fetch(
-                `https://api.geoapify.com/v1/geocode/reverse?lat=51.21709661403662&lon=6.7782883744862374&apiKey=6a57726b2c8147f5bdef39ad3c765426`
+                `https://geocode.maps.co/reverse?lat=${locationData.latitude}&lon=${locationData.longitude}&api_key=65c6f5b78dce6416502357hyac9e83f`
             )
                 .then((resData) => {
                     return resData.json();
