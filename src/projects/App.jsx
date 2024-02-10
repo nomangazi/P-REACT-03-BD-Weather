@@ -1,4 +1,5 @@
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { ToastContainer } from 'react-toastify';
 import InitProvider from '../context/InitProvider';
 import RouteHandler from './RouteHandler';
 import ComposeProviders from './utils/ComposeProviders';
@@ -10,6 +11,14 @@ function App() {
     return (
         <ComposeProviders components={[InitProvider]}>
             <RouteHandler />
+            <ToastContainer
+                position="bottom-center"
+                closeButton={false}
+                pauseOnHover={false}
+                pauseOnFocusLoss={false}
+                hideProgressBar={false}
+                theme="colored"
+            />
             <SpeedInsights />
         </ComposeProviders>
     );
