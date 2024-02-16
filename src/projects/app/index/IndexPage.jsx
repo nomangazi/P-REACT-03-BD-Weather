@@ -1,6 +1,7 @@
 import { useInit } from '../../../context/InitProvider';
 import CurrentWeather from './components/CurrentWeather';
 import SearchHeader from './components/SearchHeader';
+import ToDayWeather from './components/ToDayWeather';
 import WeatherCondition from './components/WeatherCondition';
 
 function IndexPage() {
@@ -11,6 +12,7 @@ function IndexPage() {
             <SearchHeader />
             <CurrentWeather data={weatherData.current || {}} />
             <WeatherCondition data={weatherData.current} />
+            <ToDayWeather />
         </div>
     );
 }
